@@ -24,3 +24,7 @@ export function removeItem(key) {
 export function clear() {
     localStorage.clear();
 }
+
+export function isLoggedIn() {
+    return localStorage.getItem('loggedIn') === 'true';
+}
