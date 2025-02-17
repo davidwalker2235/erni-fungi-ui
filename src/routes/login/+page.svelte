@@ -1,12 +1,12 @@
-<script>
+<script lang="ts">
     import { Card, Input, Label, Button } from 'flowbite-svelte';
     import { setItem } from '$lib/localStorage.js';
     import { goto } from '$app/navigation';
 
-    let email = '';
-    let password = '';
+    let email: string = '';
+    let password: string = '';
 
-    function handleSubmit(event) {
+    const handleSubmit = (event: Event) => {
         event.preventDefault();
         if (email === 'erni' && password === 'erni') {
             setItem('loggedIn', 'true');
