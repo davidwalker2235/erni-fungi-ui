@@ -1,26 +1,18 @@
-<script>
-  import { Card, Button, Toggle } from 'flowbite-svelte';
-  import { ArrowRightOutline } from 'flowbite-svelte-icons';
+<script lang='ts'>
+  import { Card } from 'flowbite-svelte';
   import robot from '$lib/assets/robot.webp';
-  import tresTaya from '$lib/assets/tresRaya.webp';
+  import tresRaya from '$lib/assets/tresRaya.webp';
+  import { goto } from '$app/navigation';
   let vCard = false;
+
+  function navigateTo(path: string) {
+    goto(path);
+  }
 </script>
 
 <div class="flex items-center justify-center min-h-screen">
   <div class="space-y-4">
-    <Card img={robot} reverse={vCard}>
-      <div class="flex justify-center">
-        <Button class="bg-blue-500 hover:bg-blue-700 text-white">
-          Start <ArrowRightOutline class="w-6 h-6 ms-2 text-white" />
-        </Button>
-      </div>
-    </Card>
-    <Card img={tresTaya} reverse={vCard}>
-      <div class="flex justify-center">
-        <Button class="bg-blue-500 hover:bg-blue-700 text-white">
-          Start <ArrowRightOutline class="w-6 h-6 ms-2 text-white" />
-        </Button>
-      </div>
-    </Card>
+    <Card img={robot} reverse={vCard} on:click={() => navigateTo('/robot')} class="cursor-pointer"/>
+    <Card img={tresRaya} reverse={vCard} on:click={() => navigateTo('/tres-raya')} class="cursor-pointer"/>
   </div>
 </div>
